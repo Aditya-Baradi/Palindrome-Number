@@ -1,0 +1,23 @@
+// First Solution Time complexticy O(N^2) space complextity is O(N)
+
+class Solution {
+    public boolean checkPali(String temp,int length){
+        if(length<=1){
+            return true;
+        }
+        if (temp.charAt(0)== temp.charAt(length-1)){
+            return checkPali(temp.substring(1,length-1), length-2);
+        }
+        else{
+            return false;
+        }
+    }
+    public boolean isPalindrome(int x) {
+        if(x<0){
+            return false;
+        }
+        String changed = Integer.toString(x);
+        int leng= changed.length();
+        return checkPali(changed, leng);
+    }
+}
